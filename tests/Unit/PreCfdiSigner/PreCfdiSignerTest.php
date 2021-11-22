@@ -1,7 +1,5 @@
 <?php
 
-/** @noinspection PhpUnhandledExceptionInspection */
-
 declare(strict_types=1);
 
 namespace Celli33\JsonToCfdi\Tests\Unit\PreCfdiSigner;
