@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Celli33\JsonToCfdi\Tests;
 
+use DOMDocument;
 use PHPUnit\Framework\TestCase as Test;
 
 abstract class TestCase extends Test
@@ -16,5 +17,14 @@ abstract class TestCase extends Test
     public static function fileContents(string $filename): string
     {
         return @file_get_contents(static::filePath($filename)) ?: '';
+    }
+
+    protected function createXmlDocument(string $xml): DOMDocument
+    {
+        $document = new DOMDocument();
+        $document->preserveWhiteSpace = false;
+        $document->formatOutput = true;
+        $document->loadXML($xml);
+        return $document;
     }
 }
