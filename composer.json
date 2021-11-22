@@ -36,7 +36,11 @@
         }
     },
     "scripts": {
-        "dev:build": ["@dev:static-analysis", "@dev:fix-style", "@dev:test"],
+        "dev:build": [
+            "@dev:static-analysis",
+            "@dev:fix-style",
+            "@dev:test"
+        ],
         "dev:check-style": [
             "@php vendor/bin/phpcs --colors -sp"
         ],
@@ -52,6 +56,9 @@
         ],
         "dev:coverage": [
             "@php -dzend_extension=xdebug.so -dxdebug.mode=coverage vendor/bin/phpunit --verbose --coverage-html build/coverage/html/"
+        ],
+        "dev:clover-coverage": [
+            "@php -dzend_extension=xdebug.so -dxdebug.mode=coverage vendor/bin/phpunit --coverage-clover build/coverage/coverage.xml"
         ]
     },
     "scripts-descriptions": {
