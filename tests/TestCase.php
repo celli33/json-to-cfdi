@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Celli33\JsonToCfdi\Tests;
 
+use Closure;
 use DOMDocument;
+use LogicException;
 use PHPUnit\Framework\TestCase as Test;
+use Throwable;
 
 abstract class TestCase extends Test
 {
@@ -26,5 +29,17 @@ abstract class TestCase extends Test
         $document->formatOutput = true;
         $document->loadXML($xml);
         return $document;
+    }
+
+    protected function catchException(Closure $test, string $exceptionToCatch, string $fail = ''): Throwable
+    {
+        try {
+            call_user_func($test);
+        } catch (Throwable $exception) {
+            if ($exception instanceof $exceptionToCatch) {
+                return $exception;
+            }
+        }
+        throw new LogicException($fail ?: "Unable to catch the exception $exceptionToCatch");
     }
 }
