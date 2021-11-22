@@ -11,15 +11,10 @@ final class ConfigTest extends TestCase
 {
     public function test_config_values(): void
     {
-
         $xmlResolverPath = '/path';
         $xsltBuilderSaxonPath = '/opt/saxonb';
 
-
-        $config = new Config(
-            $xmlResolverPath,
-            $xsltBuilderSaxonPath
-        );
+        $config = new Config($xmlResolverPath, $xsltBuilderSaxonPath);
 
         $this->assertSame($xmlResolverPath, $config->getXmlResolverPath());
         $this->assertSame($xsltBuilderSaxonPath, $config->getXsltBuilderSaxonPath());
