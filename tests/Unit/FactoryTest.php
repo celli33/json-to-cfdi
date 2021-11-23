@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dufrei\ApiJsonCfdiBridge\Tests\Unit;
 
 use Celli33\JsonToCfdi\Factory;
+use Celli33\JsonToCfdi\StampService\StampServiceInterface;
 use Celli33\JsonToCfdi\Tests\TestCase;
 use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\SaxonbCliBuilder;
@@ -18,26 +19,31 @@ final class FactoryTest extends TestCase
      * @param string $xmlResolverPath
      * @testWith ["/resources"]
      *           [""]
-     *           [null]
      */
-    public function test_create_xml_resolver_is_set_up(?string $xmlResolverPath): void
+    public function test_create_xml_resolver_is_set_up(string $xmlResolverPath): void
     {
-        $factory = Factory::create($xmlResolverPath);
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+        $factory = Factory::create($stampService, $xmlResolverPath);
         $xmlResolver = $factory->createXmlResolver();
         $this->assertInstanceOf(XmlResolver::class, $xmlResolver);
-        $this->assertSame($xmlResolverPath ?? '', $xmlResolver->getLocalPath());
+        $this->assertSame($xmlResolverPath, $xmlResolver->getLocalPath());
     }
 
     public function test_create_xslt_builder_returns_dombuilder_if_no_sanxonb_is_set(): void
     {
-        $factory = Factory::create();
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+        $factory = Factory::create($stampService);
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(DOMBuilder::class, $xsltBuilder);
     }
 
     public function test_create_xslt_builder_returns_sanxonb_if_is_set(): void
     {
-        $factory = Factory::create('', $pathSaxonB = '/opt/saxonb');
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+        $factory = Factory::create($stampService, '', $pathSaxonB = '/opt/saxonb');
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(SaxonbCliBuilder::class, $xsltBuilder);
         /** @var SaxonbCliBuilder $xsltBuilder */
@@ -50,7 +56,9 @@ final class FactoryTest extends TestCase
         $xmlResolver = $this->createMock(XmlResolver::class);
         /** @var XsltBuilderInterface&MockObject $xsltBuilder */
         $xsltBuilder = $this->createMock(XsltBuilderInterface::class);
-        $factory = Factory::create();
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+        $factory = Factory::create($stampService);
         $action = $factory->createSignXmlAction($xmlResolver, $xsltBuilder);
 
         $this->assertSame($xmlResolver, $action->getXmlResolver());
@@ -63,8 +71,10 @@ final class FactoryTest extends TestCase
         $xmlResolver = $this->createMock(XmlResolver::class);
         /** @var XsltBuilderInterface&MockObject $xsltBuilder */
         $xsltBuilder = $this->createMock(XsltBuilderInterface::class);
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
 
-        $factory = Factory::create();
+        $factory = Factory::create($stampService);
         $action = $factory->createBuildCfdiFromJsonAction($xmlResolver, $xsltBuilder);
         $signXmlAction = $action->getSignXmlAction();
 

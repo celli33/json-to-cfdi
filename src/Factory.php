@@ -7,6 +7,7 @@ namespace Celli33\JsonToCfdi;
 use Celli33\JsonToCfdi\Actions\BuildCfdiFromJson\BuildCfdiFromJsonAction;
 use Celli33\JsonToCfdi\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
 use Celli33\JsonToCfdi\Actions\SignXml\SignXmlAction;
+use Celli33\JsonToCfdi\StampService\StampServiceInterface;
 use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\SaxonbCliBuilder;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;
@@ -22,9 +23,12 @@ class Factory
     /**
      * @return static
      */
-    public static function create(?string $xmlResolverAbsolutPath = null, ?string $saxonbAbsolutPath = null): self
-    {
-        $config = (new ConfigBuilder($xmlResolverAbsolutPath ?? '', $saxonbAbsolutPath ?? ''))->build();
+    public static function create(
+        StampServiceInterface $stampService,
+        string $xmlResolverAbsolutPath = '',
+        string $saxonbAbsolutPath = ''
+    ): self {
+        $config = new Config($stampService, $xmlResolverAbsolutPath, $saxonbAbsolutPath);
         return new static($config);
     }
 
