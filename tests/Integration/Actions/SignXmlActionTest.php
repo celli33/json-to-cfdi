@@ -6,7 +6,6 @@ namespace PhpCfdi\JsonToCfdiBridge\Tests\Integration\Actions;
 
 use PhpCfdi\JsonToCfdiBridge\Factory;
 use PhpCfdi\JsonToCfdiBridge\PreCfdiSigner\UnableToSignXmlException;
-use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
 use PhpCfdi\JsonToCfdiBridge\Tests\Fakes\FakeCsd;
 use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
 use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
