@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\StampCfdi;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\StampCfdi;
 
-use Celli33\JsonToCfdi\Values\Cfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\Cfdi;
 
 class StampCfdiResult
 {

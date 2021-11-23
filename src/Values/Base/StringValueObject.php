@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Values\Base;
+namespace PhpCfdi\JsonToCfdiBridge\Values\Base;
 
 use JsonSerializable;
 use Stringable;

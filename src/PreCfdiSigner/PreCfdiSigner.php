@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\PreCfdiSigner;
+namespace PhpCfdi\JsonToCfdiBridge\PreCfdiSigner;
 
 use CfdiUtils\CadenaOrigen\CfdiDefaultLocations;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;

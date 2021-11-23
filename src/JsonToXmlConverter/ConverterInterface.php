@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\JsonToXmlConverter;
+namespace PhpCfdi\JsonToCfdiBridge\JsonToXmlConverter;
 
 use Stringable;
 

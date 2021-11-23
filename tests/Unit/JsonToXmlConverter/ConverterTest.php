@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests\Unit\JsonToXmlConverter;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Unit\JsonToXmlConverter;
 
-use Celli33\JsonToCfdi\JsonToXmlConverter\Converter;
-use Celli33\JsonToCfdi\JsonToXmlConverter\ConverterInterface;
-use Celli33\JsonToCfdi\JsonToXmlConverter\JsonToXmlConvertException;
-use Celli33\JsonToCfdi\Tests\TestCase;
+use PhpCfdi\JsonToCfdiBridge\JsonToXmlConverter\Converter;
+use PhpCfdi\JsonToCfdiBridge\JsonToXmlConverter\ConverterInterface;
+use PhpCfdi\JsonToCfdiBridge\JsonToXmlConverter\JsonToXmlConvertException;
+use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
 
 final class ConverterTest extends TestCase
 {

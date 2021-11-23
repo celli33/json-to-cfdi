@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\BuildCfdiFromJson;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\BuildCfdiFromJson;
 
-use Celli33\JsonToCfdi\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
-use Celli33\JsonToCfdi\Actions\SignXml\SignXmlAction;
-use Celli33\JsonToCfdi\Actions\StampCfdi\StampCfdiAction;
-use Celli33\JsonToCfdi\JsonToXmlConverter\JsonToXmlConvertException;
-use Celli33\JsonToCfdi\PreCfdiSigner\UnableToSignXmlException;
-use Celli33\JsonToCfdi\StampService\ServiceException;
-use Celli33\JsonToCfdi\StampService\StampException;
-use Celli33\JsonToCfdi\Values\Csd;
-use Celli33\JsonToCfdi\Values\JsonContent;
+use PhpCfdi\JsonToCfdiBridge\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
+use PhpCfdi\JsonToCfdiBridge\Actions\SignXml\SignXmlAction;
+use PhpCfdi\JsonToCfdiBridge\Actions\StampCfdi\StampCfdiAction;
+use PhpCfdi\JsonToCfdiBridge\JsonToXmlConverter\JsonToXmlConvertException;
+use PhpCfdi\JsonToCfdiBridge\PreCfdiSigner\UnableToSignXmlException;
+use PhpCfdi\JsonToCfdiBridge\StampService\ServiceException;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampException;
+use PhpCfdi\JsonToCfdiBridge\Values\Csd;
+use PhpCfdi\JsonToCfdiBridge\Values\JsonContent;
 
 class BuildCfdiFromJsonAction
 {

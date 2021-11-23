@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests;
+namespace PhpCfdi\JsonToCfdiBridge\Tests;
 
-use Celli33\JsonToCfdi\Values\CredentialCsd;
-use Celli33\JsonToCfdi\Values\Csd;
+use PhpCfdi\JsonToCfdiBridge\Values\CredentialCsd;
+use PhpCfdi\JsonToCfdiBridge\Values\Csd;
 use Closure;
 use DOMDocument;
 use LogicException;

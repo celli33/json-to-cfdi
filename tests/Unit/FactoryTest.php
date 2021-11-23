@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Dufrei\ApiJsonCfdiBridge\Tests\Unit;
 
-use Celli33\JsonToCfdi\Factory;
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
-use Celli33\JsonToCfdi\Tests\TestCase;
+use PhpCfdi\JsonToCfdiBridge\Factory;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
 use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\SaxonbCliBuilder;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;

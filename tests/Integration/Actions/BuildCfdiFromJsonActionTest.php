@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests\Integration\Actions;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Integration\Actions;
 
-use Celli33\JsonToCfdi\Factory;
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
-use Celli33\JsonToCfdi\Tests\Fakes\FakeStampService;
-use Celli33\JsonToCfdi\Tests\TestCase;
-use Celli33\JsonToCfdi\Values\Cfdi;
-use Celli33\JsonToCfdi\Values\JsonContent;
-use Celli33\JsonToCfdi\Values\PreCfdi;
-use Celli33\JsonToCfdi\Values\SourceString;
-use Celli33\JsonToCfdi\Values\Uuid;
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\Factory;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\Tests\Fakes\FakeStampService;
+use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
+use PhpCfdi\JsonToCfdiBridge\Values\Cfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\JsonContent;
+use PhpCfdi\JsonToCfdiBridge\Values\PreCfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\SourceString;
+use PhpCfdi\JsonToCfdiBridge\Values\Uuid;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 
 final class BuildCfdiFromJsonActionTest extends TestCase
 {

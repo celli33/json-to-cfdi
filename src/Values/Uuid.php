@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Values;
+namespace PhpCfdi\JsonToCfdiBridge\Values;
 
-use Celli33\JsonToCfdi\Values\Base\StringValueObject;
+use PhpCfdi\JsonToCfdiBridge\Values\Base\StringValueObject;
 
 final class Uuid extends StringValueObject
 {

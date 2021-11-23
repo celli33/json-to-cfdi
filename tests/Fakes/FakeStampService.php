@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests\Fakes;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Fakes;
 
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
-use Celli33\JsonToCfdi\Values\Cfdi;
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\Values\Cfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 use OutOfRangeException;
 
 final class FakeStampService implements StampServiceInterface

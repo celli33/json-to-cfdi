@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi;
+namespace PhpCfdi\JsonToCfdiBridge;
 
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
 
 class Config
 {

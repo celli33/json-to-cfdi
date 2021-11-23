@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\StampService;
+namespace PhpCfdi\JsonToCfdiBridge\StampService;
 
 use JsonSerializable;
 use Stringable;

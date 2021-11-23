@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests\Unit\PreCfdiSigner;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Unit\PreCfdiSigner;
 
-use Celli33\JsonToCfdi\PreCfdiSigner\PreCfdiSigner;
-use Celli33\JsonToCfdi\PreCfdiSigner\UnableToSignXmlException;
-use Celli33\JsonToCfdi\Tests\TestCase;
+use PhpCfdi\JsonToCfdiBridge\PreCfdiSigner\PreCfdiSigner;
+use PhpCfdi\JsonToCfdiBridge\PreCfdiSigner\UnableToSignXmlException;
+use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
 use CfdiUtils\CadenaOrigen\CfdiDefaultLocations;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;
 use CfdiUtils\XmlResolver\XmlResolver;

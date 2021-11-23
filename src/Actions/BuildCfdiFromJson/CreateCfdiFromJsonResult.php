@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\BuildCfdiFromJson;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\BuildCfdiFromJson;
 
-use Celli33\JsonToCfdi\Values\Cfdi;
-use Celli33\JsonToCfdi\Values\JsonContent;
-use Celli33\JsonToCfdi\Values\PreCfdi;
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\Values\Cfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\JsonContent;
+use PhpCfdi\JsonToCfdiBridge\Values\PreCfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 
 class CreateCfdiFromJsonResult
 {

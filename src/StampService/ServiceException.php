@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\StampService;
+namespace PhpCfdi\JsonToCfdiBridge\StampService;
 
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 use RuntimeException;
 use Throwable;
 

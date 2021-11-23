@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\SignXml;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\SignXml;
 
-use Celli33\JsonToCfdi\Values\PreCfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\PreCfdi;
 
 class SignXmlResult
 {

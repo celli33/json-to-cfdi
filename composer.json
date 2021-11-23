@@ -1,9 +1,19 @@
 {
-    "name": "celli33/json-to-cfdi",
+    "name": "phpcfdi/json-to-cfdi-bridge",
     "description": "Package for create cfdi from json",
     "type": "library",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Rodrigo Durán",
+            "email": "rduranl@dufrei.com",
+            "homepage": "https://github.com/dufrei/api-json-cfdi-bridge"
+        },
+        {
+            "name": "Carlos C Soto",
+            "email": "eclipxe13@gmail.com",
+            "homepage": "https://eclipxe.com.mx/"
+        },
         {
             "name": "Misael Limón",
             "email": "limon.martinez.misael@gmail.com"
@@ -28,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Celli33\\JsonToCfdi\\": "src/"
+            "PhpCfdi\\JsonToCfdiBridge\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Celli33\\JsonToCfdi\\Tests\\": "tests/"
+            "PhpCfdi\\JsonToCfdiBridge\\Tests\\": "tests/"
         }
     },
     "scripts": {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\ConvertJsonToXml;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\ConvertJsonToXml;
 
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 
 class ConvertJsonToXmlResult
 {

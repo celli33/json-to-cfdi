@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\StampCfdi;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\StampCfdi;
 
-use Celli33\JsonToCfdi\StampService\ServiceException;
-use Celli33\JsonToCfdi\StampService\StampException;
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\StampService\ServiceException;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampException;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 
 class StampCfdiAction
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests\Unit;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Unit;
 
-use Celli33\JsonToCfdi\Config;
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
-use Celli33\JsonToCfdi\Tests\TestCase;
+use PhpCfdi\JsonToCfdiBridge\Config;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
 
 final class ConfigTest extends TestCase
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Tests\Fakes;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Fakes;
 
-use Celli33\JsonToCfdi\Values\Csd;
+use PhpCfdi\JsonToCfdiBridge\Values\Csd;
 use LogicException;
 use Stringable;
 

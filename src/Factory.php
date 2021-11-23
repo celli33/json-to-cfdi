@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi;
+namespace PhpCfdi\JsonToCfdiBridge;
 
-use Celli33\JsonToCfdi\Actions\BuildCfdiFromJson\BuildCfdiFromJsonAction;
-use Celli33\JsonToCfdi\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
-use Celli33\JsonToCfdi\Actions\SignXml\SignXmlAction;
-use Celli33\JsonToCfdi\Actions\StampCfdi\StampCfdiAction;
-use Celli33\JsonToCfdi\StampService\StampServiceInterface;
+use PhpCfdi\JsonToCfdiBridge\Actions\BuildCfdiFromJson\BuildCfdiFromJsonAction;
+use PhpCfdi\JsonToCfdiBridge\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
+use PhpCfdi\JsonToCfdiBridge\Actions\SignXml\SignXmlAction;
+use PhpCfdi\JsonToCfdiBridge\Actions\StampCfdi\StampCfdiAction;
+use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
 use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\SaxonbCliBuilder;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;

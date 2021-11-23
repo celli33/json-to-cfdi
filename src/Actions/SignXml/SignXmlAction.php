@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Celli33\JsonToCfdi\Actions\SignXml;
+namespace PhpCfdi\JsonToCfdiBridge\Actions\SignXml;
 
-use Celli33\JsonToCfdi\Actions\SignXml\SignXmlResult;
-use Celli33\JsonToCfdi\PreCfdiSigner\PreCfdiSigner;
-use Celli33\JsonToCfdi\PreCfdiSigner\UnableToSignXmlException;
-use Celli33\JsonToCfdi\Values\Csd;
-use Celli33\JsonToCfdi\Values\PreCfdi;
-use Celli33\JsonToCfdi\Values\SourceString;
-use Celli33\JsonToCfdi\Values\XmlContent;
+use PhpCfdi\JsonToCfdiBridge\Actions\SignXml\SignXmlResult;
+use PhpCfdi\JsonToCfdiBridge\PreCfdiSigner\PreCfdiSigner;
+use PhpCfdi\JsonToCfdiBridge\PreCfdiSigner\UnableToSignXmlException;
+use PhpCfdi\JsonToCfdiBridge\Values\Csd;
+use PhpCfdi\JsonToCfdiBridge\Values\PreCfdi;
+use PhpCfdi\JsonToCfdiBridge\Values\SourceString;
+use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;
 use CfdiUtils\XmlResolver\XmlResolver;
 
