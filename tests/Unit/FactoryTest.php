@@ -18,29 +18,26 @@ final class FactoryTest extends TestCase
      * @param string $xmlResolverPath
      * @testWith ["/resources"]
      *           [""]
+     *           [null]
      */
-    public function test_create_xml_resolver_is_set_up(string $xmlResolverPath): void
+    public function test_create_xml_resolver_is_set_up(?string $xmlResolverPath): void
     {
-        $factory = Factory::create([
-            'XMLRESOLVER_PATH' => $xmlResolverPath,
-        ]);
+        $factory = Factory::create($xmlResolverPath);
         $xmlResolver = $factory->createXmlResolver();
         $this->assertInstanceOf(XmlResolver::class, $xmlResolver);
-        $this->assertSame($xmlResolverPath, $xmlResolver->getLocalPath());
+        $this->assertSame($xmlResolverPath ?? '', $xmlResolver->getLocalPath());
     }
 
     public function test_create_xslt_builder_returns_dombuilder_if_no_sanxonb_is_set(): void
     {
-        $factory = Factory::create([]);
+        $factory = Factory::create();
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(DOMBuilder::class, $xsltBuilder);
     }
 
     public function test_create_xslt_builder_returns_sanxonb_if_is_set(): void
     {
-        $factory = Factory::create([
-            'SAXONB_PATH' => $pathSaxonB = '/opt/saxonb',
-        ]);
+        $factory = Factory::create('', $pathSaxonB = '/opt/saxonb');
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(SaxonbCliBuilder::class, $xsltBuilder);
         /** @var SaxonbCliBuilder $xsltBuilder */
@@ -53,7 +50,7 @@ final class FactoryTest extends TestCase
         $xmlResolver = $this->createMock(XmlResolver::class);
         /** @var XsltBuilderInterface&MockObject $xsltBuilder */
         $xsltBuilder = $this->createMock(XsltBuilderInterface::class);
-        $factory = Factory::create([]);
+        $factory = Factory::create();
         $action = $factory->createSignXmlAction($xmlResolver, $xsltBuilder);
 
         $this->assertSame($xmlResolver, $action->getXmlResolver());
@@ -67,7 +64,7 @@ final class FactoryTest extends TestCase
         /** @var XsltBuilderInterface&MockObject $xsltBuilder */
         $xsltBuilder = $this->createMock(XsltBuilderInterface::class);
 
-        $factory = Factory::create([]);
+        $factory = Factory::create();
         $action = $factory->createBuildCfdiFromJsonAction($xmlResolver, $xsltBuilder);
         $signXmlAction = $action->getSignXmlAction();
 

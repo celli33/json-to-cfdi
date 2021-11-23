@@ -20,12 +20,11 @@ class Factory
     }
 
     /**
-     * @param array<string,mixed> $environment
      * @return static
      */
-    public static function create(array $environment = []): self
+    public static function create(?string $xmlResolverAbsolutPath = null, ?string $saxonbAbsolutPath = null): self
     {
-        $config = (new ConfigBuilder($environment))->build();
+        $config = (new ConfigBuilder($xmlResolverAbsolutPath ?? '', $saxonbAbsolutPath ?? ''))->build();
         return new static($config);
     }
 

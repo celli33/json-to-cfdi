@@ -11,7 +11,7 @@ final class ConfigBuilderTest extends TestCase
 {
     public function test_build_with_no_environment(): void
     {
-        $builder = new ConfigBuilder([]);
+        $builder = new ConfigBuilder();
         $config = $builder->build();
 
         $this->assertSame('', $config->getXmlResolverPath());
@@ -20,10 +20,7 @@ final class ConfigBuilderTest extends TestCase
 
     public function test_build_with_data(): void
     {
-        $builder = new ConfigBuilder([
-            'XMLRESOLVER_PATH' => '/resources',
-            'SAXONB_PATH' => '/opt/saxon/saxonb',
-        ]);
+        $builder = new ConfigBuilder('/resources', '/opt/saxon/saxonb');
         $config = $builder->build();
 
         $this->assertSame('/resources', $config->getXmlResolverPath());
@@ -34,45 +31,17 @@ final class ConfigBuilderTest extends TestCase
     {
         $path = '/absolute/path';
 
-        $config = (new ConfigBuilder([
-            'XMLRESOLVER_PATH' => $path,
-        ]))->build();
+        $config = (new ConfigBuilder($path))->build();
 
         $this->assertSame($path, $config->getXmlResolverPath());
-    }
-
-    public function test_xml_resolver_path_uses_relative(): void
-    {
-        $path = 'relative/path';
-        $expected = dirname($this->filePath(''), 2) . '/' . $path;
-
-        $config = (new ConfigBuilder([
-            'XMLRESOLVER_PATH' => $path,
-        ]))->build();
-
-        $this->assertSame($expected, $config->getXmlResolverPath());
     }
 
     public function test_xslt_builder_saxon_path_uses_absolute(): void
     {
         $path = '/absolute/path';
 
-        $config = (new ConfigBuilder([
-            'SAXONB_PATH' => $path,
-        ]))->build();
+        $config = (new ConfigBuilder('', $path))->build();
 
         $this->assertSame($path, $config->getXsltBuilderSaxonPath());
-    }
-
-    public function test_xslt_builder_saxon_path_uses_relative(): void
-    {
-        $path = 'relative/path';
-        $expected = dirname($this->filePath(''), 2) . '/' . $path;
-
-        $config = (new ConfigBuilder([
-            'SAXONB_PATH' => $path,
-        ]))->build();
-
-        $this->assertSame($expected, $config->getXsltBuilderSaxonPath());
     }
 }

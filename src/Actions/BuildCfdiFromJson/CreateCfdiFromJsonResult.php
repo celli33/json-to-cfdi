@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Celli33\JsonToCfdi\Actions\BuildCfdiFromJson;
 
+use Celli33\JsonToCfdi\Values\Cfdi;
 use Celli33\JsonToCfdi\Values\JsonContent;
 use Celli33\JsonToCfdi\Values\PreCfdi;
 use Celli33\JsonToCfdi\Values\XmlContent;
-use CfdiUtils\Cfdi;
 
 class CreateCfdiFromJsonResult
 {

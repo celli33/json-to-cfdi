@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Celli33\JsonToCfdi\Tests;
 
+use Celli33\JsonToCfdi\Values\CredentialCsd;
+use Celli33\JsonToCfdi\Values\Csd;
 use Closure;
 use DOMDocument;
 use LogicException;
+use PhpCfdi\Credentials\Credential;
 use PHPUnit\Framework\TestCase as Test;
 use Throwable;
 
@@ -20,6 +23,21 @@ abstract class TestCase extends Test
     public static function fileContents(string $filename): string
     {
         return @file_get_contents(static::filePath($filename)) ?: '';
+    }
+
+    public function createCsdForTesting(): Csd
+    {
+        $credential = $this->createCredentialForTesting();
+        return new CredentialCsd($credential);
+    }
+
+    public function createCredentialForTesting(): Credential
+    {
+        return Credential::openFiles(
+            $this->filePath('fake-csd/EKU9003173C9.cer'),
+            $this->filePath('fake-csd/EKU9003173C9.key'),
+            trim($this->fileContents('fake-csd/EKU9003173C9-password.txt')),
+        );
     }
 
     protected function createXmlDocument(string $xml): DOMDocument
