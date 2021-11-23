@@ -7,6 +7,7 @@ namespace Celli33\JsonToCfdi;
 use Celli33\JsonToCfdi\Actions\BuildCfdiFromJson\BuildCfdiFromJsonAction;
 use Celli33\JsonToCfdi\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
 use Celli33\JsonToCfdi\Actions\SignXml\SignXmlAction;
+use Celli33\JsonToCfdi\Actions\StampCfdi\StampCfdiAction;
 use Celli33\JsonToCfdi\StampService\StampServiceInterface;
 use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\SaxonbCliBuilder;
@@ -57,13 +58,21 @@ class Factory
         return new SignXmlAction($xmlResolver, $xsltBuilder);
     }
 
+    public function createStampCfdiAction(
+        StampServiceInterface $stampService
+    ): StampCfdiAction {
+        return new StampCfdiAction($stampService);
+    }
+
     public function createBuildCfdiFromJsonAction(
+        StampServiceInterface $stampService,
         ?XmlResolver $xmlResolver = null,
         ?XsltBuilderInterface $xsltBuilder = null,
     ): BuildCfdiFromJsonAction {
         return new BuildCfdiFromJsonAction(
             new ConvertJsonToXmlAction(),
             $this->createSignXmlAction($xmlResolver, $xsltBuilder),
+            $this->createStampCfdiAction($stampService),
         );
     }
 }

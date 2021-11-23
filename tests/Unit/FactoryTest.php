@@ -75,7 +75,7 @@ final class FactoryTest extends TestCase
         $stampService = $this->createMock(StampServiceInterface::class);
 
         $factory = Factory::create($stampService);
-        $action = $factory->createBuildCfdiFromJsonAction($xmlResolver, $xsltBuilder);
+        $action = $factory->createBuildCfdiFromJsonAction($stampService, $xmlResolver, $xsltBuilder);
         $signXmlAction = $action->getSignXmlAction();
 
         $this->assertSame($xmlResolver, $signXmlAction->getXmlResolver());

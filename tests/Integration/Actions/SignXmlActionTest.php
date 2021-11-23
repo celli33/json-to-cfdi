@@ -6,6 +6,7 @@ namespace Celli33\JsonToCfdi\Tests\Integration\Actions;
 
 use Celli33\JsonToCfdi\Factory;
 use Celli33\JsonToCfdi\PreCfdiSigner\UnableToSignXmlException;
+use Celli33\JsonToCfdi\StampService\StampServiceInterface;
 use Celli33\JsonToCfdi\Tests\Fakes\FakeCsd;
 use Celli33\JsonToCfdi\Tests\TestCase;
 use Celli33\JsonToCfdi\Values\XmlContent;
@@ -15,7 +16,11 @@ final class SignXmlActionTest extends TestCase
 {
     public function test_sign_put_all_required_information(): void
     {
-        $factory = Factory::create();
+
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+
+        $factory = Factory::create($stampService);
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));
@@ -40,7 +45,9 @@ final class SignXmlActionTest extends TestCase
 
     public function test_sign_with_invalid_csd_type(): void
     {
-        $factory = Factory::create();
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+        $factory = Factory::create($stampService);
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));
@@ -55,7 +62,9 @@ final class SignXmlActionTest extends TestCase
 
     public function test_sign_with_invalid_csd_expired(): void
     {
-        $factory = Factory::create();
+        /** @var StampServiceInterface $stampService */
+        $stampService = $this->createMock(StampServiceInterface::class);
+        $factory = Factory::create($stampService);
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));

@@ -15,6 +15,7 @@ class CreateCfdiFromJsonResult
         private JsonContent $json,
         private XmlContent $convertedXml,
         private PreCfdi $preCfdi,
+        private Cfdi $cfdi,
     ) {
     }
 
@@ -31,5 +32,10 @@ class CreateCfdiFromJsonResult
     public function getPreCfdi(): PreCfdi
     {
         return $this->preCfdi;
+    }
+
+    public function getCfdi(): Cfdi
+    {
+        return $this->cfdi;
     }
 }
