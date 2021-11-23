@@ -19,7 +19,7 @@ final class FactoryTest extends TestCase
      * @testWith ["/resources"]
      *           [""]
      */
-    public function testCreateXmlResolverIsSetUp(string $xmlResolverPath): void
+    public function test_create_xml_resolver_is_set_up(string $xmlResolverPath): void
     {
         $factory = Factory::create([
             'XMLRESOLVER_PATH' => $xmlResolverPath,
@@ -29,14 +29,14 @@ final class FactoryTest extends TestCase
         $this->assertSame($xmlResolverPath, $xmlResolver->getLocalPath());
     }
 
-    public function testCreateXsltBuilderReturnsDombuilderIfNoSanxonbIsSet(): void
+    public function test_create_xslt_builder_returns_dombuilder_if_no_sanxonb_is_set(): void
     {
         $factory = Factory::create([]);
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(DOMBuilder::class, $xsltBuilder);
     }
 
-    public function testCreateXsltBuilderReturnsSanxonbIfIsSet(): void
+    public function test_create_xslt_builder_returns_sanxonb_if_is_set(): void
     {
         $factory = Factory::create([
             'SAXONB_PATH' => $pathSaxonB = '/opt/saxonb',
@@ -47,7 +47,7 @@ final class FactoryTest extends TestCase
         $this->assertSame($pathSaxonB, $xsltBuilder->getExecutablePath());
     }
 
-    public function testCreateSignXmlActionRespectDependences(): void
+    public function test_create_sign_xml_action_respect_dependences(): void
     {
         /** @var XmlResolver&MockObject $xmlResolver */
         $xmlResolver = $this->createMock(XmlResolver::class);
@@ -60,7 +60,7 @@ final class FactoryTest extends TestCase
         $this->assertSame($xsltBuilder, $action->getXsltBuilder());
     }
 
-    public function testCreateBuildCfdiFromJsonActionRespectDependences(): void
+    public function test_create_build_cfdi_from_json_action_respect_dependences(): void
     {
         /** @var XmlResolver&MockObject $xmlResolver */
         $xmlResolver = $this->createMock(XmlResolver::class);
