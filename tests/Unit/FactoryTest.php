@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dufrei\ApiJsonCfdiBridge\Tests\Unit;
+namespace PhpCfdi\JsonToCfdiBridge\Tests\Unit;
 
 use PhpCfdi\JsonToCfdiBridge\Factory;
 use PhpCfdi\JsonToCfdiBridge\StampService\StampServiceInterface;
@@ -28,7 +28,7 @@ final class FactoryTest extends TestCase
         $this->assertSame($xmlResolverPath, $xmlResolver->getLocalPath());
     }
 
-    public function test_create_xslt_builder_returns_dombuilder_if_no_sanxonb_is_set(): void
+    public function test_create_xslt_builder_returns_dombuilder_if_no_saxonb_is_set(): void
     {
         $factory = Factory::create();
         $xsltBuilder = $factory->createXsltBuilder();
