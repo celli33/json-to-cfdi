@@ -22,9 +22,7 @@ final class FactoryTest extends TestCase
      */
     public function test_create_xml_resolver_is_set_up(string $xmlResolverPath): void
     {
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-        $factory = Factory::create($stampService, $xmlResolverPath);
+        $factory = Factory::create($xmlResolverPath);
         $xmlResolver = $factory->createXmlResolver();
         $this->assertInstanceOf(XmlResolver::class, $xmlResolver);
         $this->assertSame($xmlResolverPath, $xmlResolver->getLocalPath());
@@ -32,18 +30,14 @@ final class FactoryTest extends TestCase
 
     public function test_create_xslt_builder_returns_dombuilder_if_no_sanxonb_is_set(): void
     {
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(DOMBuilder::class, $xsltBuilder);
     }
 
     public function test_create_xslt_builder_returns_sanxonb_if_is_set(): void
     {
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-        $factory = Factory::create($stampService, '', $pathSaxonB = '/opt/saxonb');
+        $factory = Factory::create('', $pathSaxonB = '/opt/saxonb');
         $xsltBuilder = $factory->createXsltBuilder();
         $this->assertInstanceOf(SaxonbCliBuilder::class, $xsltBuilder);
         /** @var SaxonbCliBuilder $xsltBuilder */
@@ -56,9 +50,7 @@ final class FactoryTest extends TestCase
         $xmlResolver = $this->createMock(XmlResolver::class);
         /** @var XsltBuilderInterface&MockObject $xsltBuilder */
         $xsltBuilder = $this->createMock(XsltBuilderInterface::class);
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $action = $factory->createSignXmlAction($xmlResolver, $xsltBuilder);
 
         $this->assertSame($xmlResolver, $action->getXmlResolver());
@@ -74,7 +66,7 @@ final class FactoryTest extends TestCase
         /** @var StampServiceInterface $stampService */
         $stampService = $this->createMock(StampServiceInterface::class);
 
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $action = $factory->createBuildCfdiFromJsonAction($stampService, $xmlResolver, $xsltBuilder);
         $signXmlAction = $action->getSignXmlAction();
 

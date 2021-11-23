@@ -16,11 +16,7 @@ final class SignXmlActionTest extends TestCase
 {
     public function test_sign_put_all_required_information(): void
     {
-
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));
@@ -45,9 +41,7 @@ final class SignXmlActionTest extends TestCase
 
     public function test_sign_with_invalid_csd_type(): void
     {
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));
@@ -62,9 +56,7 @@ final class SignXmlActionTest extends TestCase
 
     public function test_sign_with_invalid_csd_expired(): void
     {
-        /** @var StampServiceInterface $stampService */
-        $stampService = $this->createMock(StampServiceInterface::class);
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));

@@ -25,11 +25,10 @@ class Factory
      * @return static
      */
     public static function create(
-        StampServiceInterface $stampService,
         string $xmlResolverAbsolutPath = '',
         string $saxonbAbsolutPath = ''
     ): self {
-        $config = new Config($stampService, $xmlResolverAbsolutPath, $saxonbAbsolutPath);
+        $config = new Config($xmlResolverAbsolutPath, $saxonbAbsolutPath);
         return new static($config);
     }
 

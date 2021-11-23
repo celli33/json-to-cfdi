@@ -30,7 +30,7 @@ final class BuildCfdiFromJsonActionTest extends TestCase
         );
 
         $stampService = new FakeStampService([$cfdi]);
-        $factory = Factory::create($stampService);
+        $factory = Factory::create();
         $action = $factory->createBuildCfdiFromJsonAction(stampService: $stampService);
         $result = $action->execute($jsonContent, $this->createCsdForTesting());
 
