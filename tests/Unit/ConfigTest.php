@@ -19,4 +19,15 @@ final class ConfigTest extends TestCase
         $this->assertSame($xmlResolverPath, $config->getXmlResolverPath());
         $this->assertSame($xsltBuilderSaxonPath, $config->getXsltBuilderSaxonPath());
     }
+
+    public function test_build_config_translate_relativo_to_absolute_path(): void
+    {
+        $xmlResolverPath = 'path';
+        $xsltBuilderSaxonPath = 'opt/saxonb';
+
+        $config = new Config($xmlResolverPath, $xsltBuilderSaxonPath);
+
+        $this->assertSame('/' . $xmlResolverPath, $config->getXmlResolverPath());
+        $this->assertSame('/' . $xsltBuilderSaxonPath, $config->getXsltBuilderSaxonPath());
+    }
 }

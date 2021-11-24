@@ -28,6 +28,15 @@ final class FactoryTest extends TestCase
         $this->assertSame($xmlResolverPath, $xmlResolver->getLocalPath());
     }
 
+    public function test_create_xml_resolver_tries_absolute_when_relative_send(): void
+    {
+        $relativePath = 'relative';
+        $factory = Factory::create('relative');
+        $xmlResolver = $factory->createXmlResolver();
+        $this->assertInstanceOf(XmlResolver::class, $xmlResolver);
+        $this->assertSame('/' . $relativePath, $xmlResolver->getLocalPath());
+    }
+
     public function test_create_xslt_builder_returns_dombuilder_if_no_saxonb_is_set(): void
     {
         $factory = Factory::create();

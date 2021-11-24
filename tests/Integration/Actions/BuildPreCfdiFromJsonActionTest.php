@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace PhpCfdi\JsonToCfdiBridge\Tests\Integration\Actions;
 
 use PhpCfdi\JsonToCfdiBridge\Factory;
-use PhpCfdi\JsonToCfdiBridge\Tests\Fakes\FakeStampService;
 use PhpCfdi\JsonToCfdiBridge\Tests\TestCase;
-use PhpCfdi\JsonToCfdiBridge\Values\Cfdi;
 use PhpCfdi\JsonToCfdiBridge\Values\JsonContent;
 use PhpCfdi\JsonToCfdiBridge\Values\SourceString;
-use PhpCfdi\JsonToCfdiBridge\Values\Uuid;
 use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 
 final class BuildPreCfdiFromJsonActionTest extends TestCase
@@ -21,7 +18,7 @@ final class BuildPreCfdiFromJsonActionTest extends TestCase
         $convertedContent = new XmlContent($this->fileContents('converted.xml'));
         $sourceStringContent = new SourceString($this->fileContents('sourcestring.txt'));
         $signedContent = new XmlContent($this->fileContents('signed.xml'));
-        $factory = Factory::create($_ENV['XMLRESOLVER_PATH']);
+        $factory = Factory::create($this->basePath($_ENV['XMLRESOLVER_PATH']));
         $action = $factory->createBuildPreCfdiFromJsonAction();
         $result = $action->execute($jsonContent, $this->createCsdForTesting());
 

@@ -15,6 +15,12 @@ use Throwable;
 
 abstract class TestCase extends Test
 {
+
+    public static function basePath(string $path = ''): string
+    {
+        return dirname(__DIR__) . '/' . $path;
+    }
+
     public static function filePath(string $filename): string
     {
         return __DIR__ . '/_files/' . $filename;

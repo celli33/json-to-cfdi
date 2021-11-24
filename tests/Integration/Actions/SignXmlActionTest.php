@@ -15,7 +15,7 @@ final class SignXmlActionTest extends TestCase
 {
     public function test_sign_put_all_required_information(): void
     {
-        $factory = Factory::create();
+        $factory = Factory::create($this->basePath($_ENV['XMLRESOLVER_PATH']));
         $action = $factory->createSignXmlAction();
 
         $xml = new XmlContent($this->fileContents('converted.xml'));

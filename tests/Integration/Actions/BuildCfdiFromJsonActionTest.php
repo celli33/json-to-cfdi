@@ -28,7 +28,7 @@ final class BuildCfdiFromJsonActionTest extends TestCase
         );
 
         $stampService = new FakeStampService([$cfdi]);
-        $factory = Factory::create($_ENV['XMLRESOLVER_PATH']);
+        $factory = Factory::create($this->basePath($_ENV['XMLRESOLVER_PATH']));
         $action = $factory->createBuildCfdiFromJsonAction(stampService: $stampService);
         $result = $action->execute($jsonContent, $this->createCsdForTesting());
 
