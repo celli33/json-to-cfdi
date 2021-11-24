@@ -23,6 +23,8 @@ class Factory
     }
 
     /**
+     * Expects only absolute paths if relative sends try to use that as absolute
+     *
      * @return static
      */
     public static function create(
