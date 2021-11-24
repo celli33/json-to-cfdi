@@ -33,8 +33,11 @@ abstract class TestCase extends Test
 
     public function createCsdForTesting(): Csd
     {
-        $credential = $this->createCredentialForTesting();
-        return new CredentialCsd($credential);
+        return new CredentialCsd(
+            $this->filePath('fake-csd/EKU9003173C9.cer'),
+            $this->filePath('fake-csd/EKU9003173C9.key'),
+            trim($this->fileContents('fake-csd/EKU9003173C9-password.txt')),
+        );
     }
 
     public function createCredentialForTesting(): Credential
