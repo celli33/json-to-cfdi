@@ -13,6 +13,7 @@ use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;
 use CfdiUtils\XmlResolver\XmlResolver;
 use CfdiUtils\CadenaOrigen\SaxonbCliBuilder;
+use PhpCfdi\JsonToCfdiBridge\Actions\BuildPreCfdiFromJson\BuildPreCfdiFromJsonAction;
 
 class Factory
 {
@@ -72,6 +73,16 @@ class Factory
             new ConvertJsonToXmlAction(),
             $this->createSignXmlAction($xmlResolver, $xsltBuilder),
             $this->createStampCfdiAction($stampService),
+        );
+    }
+
+    public function createBuildPreCfdiFromJsonAction(
+        ?XmlResolver $xmlResolver = null,
+        ?XsltBuilderInterface $xsltBuilder = null,
+    ): BuildPreCfdiFromJsonAction {
+        return new BuildPreCfdiFromJsonAction(
+            new ConvertJsonToXmlAction(),
+            $this->createSignXmlAction($xmlResolver, $xsltBuilder),
         );
     }
 }

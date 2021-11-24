@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\JsonToCfdiBridge\Actions\BuildCfdiFromJson;
 
+use PhpCfdi\JsonToCfdiBridge\Actions\BuildPreCfdiFromJson\BuildPreCfdiFromJsonAction;
 use PhpCfdi\JsonToCfdiBridge\Actions\ConvertJsonToXml\ConvertJsonToXmlAction;
 use PhpCfdi\JsonToCfdiBridge\Actions\SignXml\SignXmlAction;
 use PhpCfdi\JsonToCfdiBridge\Actions\StampCfdi\StampCfdiAction;
@@ -36,14 +37,14 @@ class BuildCfdiFromJsonAction
      */
     public function execute(JsonContent $json, Csd $csd): CreateCfdiFromJsonResult
     {
-        $convertResult = $this->convertJsonToXmlAction->execute($json);
-        $preCfdiResult = $this->signXmlAction->execute($convertResult->getXml(), $csd);
+        $preCfdiResult = (new BuildPreCfdiFromJsonAction($this->convertJsonToXmlAction, $this->signXmlAction))
+            ->execute($json, $csd);
         $cfdiResult = $this->stampCfdiAction->execute($preCfdiResult->getPreCfdi()->getXml());
         return new CreateCfdiFromJsonResult(
-            $json,
-            $convertResult->getXml(),
+            $preCfdiResult->getJson(),
+            $preCfdiResult->getConvertedXml(),
             $preCfdiResult->getPreCfdi(),
-            $cfdiResult->getCfdi(),
+            $cfdiResult->getCfdi()
         );
     }
 }

@@ -13,23 +13,16 @@ use PhpCfdi\JsonToCfdiBridge\Values\SourceString;
 use PhpCfdi\JsonToCfdiBridge\Values\Uuid;
 use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 
-final class BuildCfdiFromJsonActionTest extends TestCase
+final class BuildPreCfdiFromJsonActionTest extends TestCase
 {
-    public function test_build_cfdi_from_json_action_using_fake_service(): void
+    public function test_build_pre_cfdi_from_json_action_using_fake_service(): void
     {
         $jsonContent = new JsonContent($this->fileContents('invoice.json'));
         $convertedContent = new XmlContent($this->fileContents('converted.xml'));
         $sourceStringContent = new SourceString($this->fileContents('sourcestring.txt'));
         $signedContent = new XmlContent($this->fileContents('signed.xml'));
-        $stampedContent = new XmlContent($this->fileContents('stamped.xml'));
-        $cfdi = new Cfdi(
-            new Uuid('CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC'),
-            $stampedContent,
-        );
-
-        $stampService = new FakeStampService([$cfdi]);
         $factory = Factory::create($_ENV['XMLRESOLVER_PATH']);
-        $action = $factory->createBuildCfdiFromJsonAction(stampService: $stampService);
+        $action = $factory->createBuildPreCfdiFromJsonAction();
         $result = $action->execute($jsonContent, $this->createCsdForTesting());
 
         $this->assertSame($jsonContent, $result->getJson());
@@ -39,7 +32,5 @@ final class BuildCfdiFromJsonActionTest extends TestCase
         $this->assertEquals($sourceStringContent, $result->getPreCfdi()->getSourceString());
 
         $this->assertEquals($signedContent->toDocument(), $result->getPreCfdi()->getXml()->toDocument());
-
-        $this->assertSame($cfdi, $result->getCfdi());
     }
 }
