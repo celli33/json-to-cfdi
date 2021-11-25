@@ -9,11 +9,14 @@ use Stringable;
 
 class CredentialCsd implements Csd
 {
-    private Credential $credential;
-
-    public function __construct(string $certificateFile, string $privateKeyFile, string $passPhrase)
+    public function __construct(private Credential $credential)
     {
-        $this->credential = Credential::openFiles($certificateFile, $privateKeyFile, $passPhrase);
+    }
+
+    public static function createFromFiles(string $certificateFile, string $privateKeyFile, string $passPhrase): self
+    {
+        $credential = Credential::openFiles($certificateFile, $privateKeyFile, $passPhrase);
+        return new self($credential);
     }
 
     public function getRfc(): string
