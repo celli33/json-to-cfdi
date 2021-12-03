@@ -29,7 +29,8 @@
     "require": {
         "php": ">=8.0",
         "eclipxe/cfdiutils": "^2.16",
-        "phpcfdi/credentials": "^1.1"
+        "phpcfdi/credentials": "^1.1",
+        "phpcfdi/cfdi-cleaner": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

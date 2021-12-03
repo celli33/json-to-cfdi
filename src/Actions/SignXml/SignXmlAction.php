@@ -13,6 +13,7 @@ use PhpCfdi\JsonToCfdiBridge\Values\SourceString;
 use PhpCfdi\JsonToCfdiBridge\Values\XmlContent;
 use CfdiUtils\CadenaOrigen\XsltBuilderInterface;
 use CfdiUtils\XmlResolver\XmlResolver;
+use PhpCfdi\CfdiCleaner\Cleaner;
 
 class SignXmlAction
 {
@@ -44,7 +45,10 @@ class SignXmlAction
             throw new UnableToSignXmlException($message);
         }
 
-        $document = $xml->toDocument();
+        $cleanDocument = $xml->getValue();
+        $cleaner = new Cleaner();
+        $document = $cleaner->cleanStringToDocument($cleanDocument);
+
         $signer = new PreCfdiSigner($document, $this->xmlResolver, $this->xsltBuilder);
 
         $signer->putIssuerRfc($csd->getRfc());

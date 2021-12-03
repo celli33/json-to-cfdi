@@ -18,7 +18,7 @@ final class SignXmlActionTest extends TestCase
         $factory = Factory::create($this->basePath($_ENV['XMLRESOLVER_PATH']));
         $action = $factory->createSignXmlAction();
 
-        $xml = new XmlContent($this->fileContents('converted.xml'));
+        $xml = new XmlContent($this->fileContents('xml-generado.xml'));
         $rfc = 'EKU9003173C9';
         $certificateNumber = '30001000000400002434';
         $certificateContents = base64_encode(hash('sha256', 'CERTIFICADO', true)) ?: 'CERTIFICADO';
