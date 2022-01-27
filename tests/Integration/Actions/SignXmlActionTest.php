@@ -27,10 +27,11 @@ final class SignXmlActionTest extends TestCase
 
         $result = $action->execute($xml, $csd);
         $document = $result->getPreCfdi()->getXml()->toDocument();
+
         /** @var DOMElement $comprobante */
-        $comprobante = $document->getElementsByTagNameNS('http://www.sat.gob.mx/cfd/3', 'Comprobante')->item(0);
+        $comprobante = $document->getElementsByTagNameNS('http://www.sat.gob.mx/cfd/4', 'Comprobante')->item(0);
         /** @var DOMElement $emisor */
-        $emisor = $document->getElementsByTagNameNS('http://www.sat.gob.mx/cfd/3', 'Emisor')->item(0);
+        $emisor = $document->getElementsByTagNameNS('http://www.sat.gob.mx/cfd/4', 'Emisor')->item(0);
 
         $this->assertSame($certificateContents, $comprobante->getAttribute('Certificado'));
         $this->assertSame($certificateNumber, $comprobante->getAttribute('NoCertificado'));

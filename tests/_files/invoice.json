@@ -1,10 +1,10 @@
 {
     "cfdi:Comprobante": {
         "_attributes": {
-            "xmlns:cfdi": "http://www.sat.gob.mx/cfd/3",
+            "xmlns:cfdi": "http://www.sat.gob.mx/cfd/4",
             "xmlns:implocal": "http://www.sat.gob.mx/implocal",
             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-            "xsi:schemaLocation": "http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd",
+            "xsi:schemaLocation": "http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd",
             "CondicionesDePago": "CONTADO",
             "Fecha": "2018-01-12T08:15:01",
             "Folio": "11541",
@@ -18,7 +18,7 @@
             "SubTotal": "1709.12",
             "TipoDeComprobante": "I",
             "Total": "2010.01",
-            "Version": "3.3"
+            "Version": "4.0"
         },
         "cfdi:Emisor": {
             "_attributes": {

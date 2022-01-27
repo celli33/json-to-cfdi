@@ -19,6 +19,7 @@ final class BuildCfdiFromJsonActionTest extends TestCase
     {
         $jsonContent = new JsonContent($this->fileContents('invoice.json'));
         $convertedContent = new XmlContent($this->fileContents('converted.xml'));
+
         $sourceStringContent = new SourceString($this->fileContents('sourcestring.txt'));
         $signedContent = new XmlContent($this->fileContents('signed.xml'));
         $stampedContent = new XmlContent($this->fileContents('stamped.xml'));

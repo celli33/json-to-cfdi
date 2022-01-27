@@ -19,6 +19,7 @@ final class BuildPreCfdiFromJsonActionTest extends TestCase
         $sourceStringContent = new SourceString($this->fileContents('sourcestring.txt'));
         $signedContent = new XmlContent($this->fileContents('signed.xml'));
         $factory = Factory::create($this->basePath($_ENV['XMLRESOLVER_PATH']));
+
         $action = $factory->createBuildPreCfdiFromJsonAction();
         $result = $action->execute($jsonContent, $this->createCsdForTesting());
 

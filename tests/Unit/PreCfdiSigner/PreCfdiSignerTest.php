@@ -33,7 +33,7 @@ final class PreCfdiSignerTest extends TestCase
         $signature = 'SELLO';
         $expected = $this->createXmlDocument(
             <<<XML
-                <cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3"
+                <cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
                   Certificado="$certificateValue"
                   NoCertificado="$certificateNumber"
                   Sello="$signature"
@@ -45,7 +45,7 @@ final class PreCfdiSignerTest extends TestCase
 
         $document = $this->createXmlDocument(
             <<<XML
-                <cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+                <cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
                 <cfdi:Emisor/>
                 </cfdi:Comprobante>
                 XML
@@ -105,7 +105,7 @@ final class PreCfdiSignerTest extends TestCase
         $differentRfc = 'XXXX010101XXX';
         $document = $this->createXmlDocument(
             <<<XML
-                <cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+                <cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
                 <cfdi:Emisor Rfc="$sourceRfc"/>
                 </cfdi:Comprobante>
                 XML
@@ -120,12 +120,12 @@ final class PreCfdiSignerTest extends TestCase
 
     public function test_build_source_string(): void
     {
-        $remoteXsltLocation = CfdiDefaultLocations::XSLT_33;
+        $remoteXsltLocation = CfdiDefaultLocations::XSLT_40;
         $localXsltLocation = '/resources/fake/location.xsd';
-        $sourceString = '||3.3||';
+        $sourceString = '||4.4||';
 
         $document = $this->createXmlDocument(
-            '<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" Version="3.3"/>',
+            '<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" Version="4.0"/>',
         );
 
         /** @var XmlResolver&MockObject $xmlResolver */
@@ -149,7 +149,7 @@ final class PreCfdiSignerTest extends TestCase
 
     public function test_build_source_string_exception(): void
     {
-        $remoteXsltLocation = CfdiDefaultLocations::XSLT_33;
+        $remoteXsltLocation = CfdiDefaultLocations::XSLT_40;
         $localXsltLocation = '/resources/fake/location.xsd';
         $resultException = new Exception('ups, something went wrong');
 

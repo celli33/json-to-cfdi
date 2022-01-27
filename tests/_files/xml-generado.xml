@@ -1,7 +1,5 @@
-<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" 
-    Version="3.3" CondicionesDePago="CONTADO" Fecha="2018-01-12T08:15:01" Folio="11541" FormaPago="04" LugarExpedicion="76802" MetodoPago="PUE" Moneda="MXN" Serie="H" TipoDeComprobante="I" SubTotal="1709.12" Total="1982.58">
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv44.xsd" Version="3.3" CondicionesDePago="CONTADO" Fecha="2018-01-12T08:15:01" Folio="11541" FormaPago="04" LugarExpedicion="76802" MetodoPago="PUE" Moneda="MXN" Serie="H" TipoDeComprobante="I" SubTotal="1709.12" Total="1982.58">
     <cfdi:Emisor Nombre="ESCUELA KEMPER URGATE SA DE CV" RegimenFiscal="601" Rfc="EKU9003173C9"/>
     <cfdi:Receptor Rfc="XAXX010101000" UsoCFDI="P01"/>
     <cfdi:Conceptos>
